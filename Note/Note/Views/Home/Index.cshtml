@@ -3,111 +3,112 @@
 }
 
 <div class="centerDiv">
-@if (User.Identity.IsAuthenticated)
-{
-    <p><h1>Заметки пользователя: <b>@User.Identity.Name</b></h1></p>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p><h1>Заметки пользователя: <b>@User.Identity.Name</b></h1></p>
 
-    <a class="addButton" asp-action="CreateNote">Создать заметку</a>
+        <a class="addButton" asp-action="CreateNote">Создать заметку</a>
 
-    <style>
-        .table td{
-            border:1px solid black;
-        }
+        <style>
+            .table td {
+                border: 1px solid black;
+            }
 
-        .exitButton {
-            text-decoration: none;
-            text-align: center;
-            padding: 2px 2px;
-            border: none;
-            -webkit-border-radius: 14px;
-            -moz-border-radius: 14px;
-            border-radius: 14px;
-            font: 14px Arial, Helvetica, sans-serif;
-            font-weight: bold;
-            color: #E5FFFF;
-            background-color: #f7452c;
-            background-image: -moz-linear-gradient(top, #f7452c 0%, #1982A5 100%);
-            background-image: -webkit-linear-gradient(top, #f7452c 0%, #1982A5 100%);
-            background-image: -o-linear-gradient(top, #3BA4C7 0%, #1982A5 100%);
-            background-image: -ms-linear-gradient(top, #3BA4C7 0%,#1982A5 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1982A5', endColorstr='#1982A5',GradientType=0 );
-            background-image: linear-gradient(top, #3BA4C7 0%,#1982A5 100%);
-            -webkit-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
-            -moz-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
-            box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
-            cursor:pointer;
-        }
+            .exitButton {
+                text-decoration: none;
+                text-align: center;
+                padding: 2px 2px;
+                border: none;
+                -webkit-border-radius: 14px;
+                -moz-border-radius: 14px;
+                border-radius: 14px;
+                font: 14px Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                color: #E5FFFF;
+                background-color: #f7452c;
+                background-image: -moz-linear-gradient(top, #f7452c 0%, #1982A5 100%);
+                background-image: -webkit-linear-gradient(top, #f7452c 0%, #1982A5 100%);
+                background-image: -o-linear-gradient(top, #3BA4C7 0%, #1982A5 100%);
+                background-image: -ms-linear-gradient(top, #3BA4C7 0%,#1982A5 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1982A5', endColorstr='#1982A5',GradientType=0 );
+                background-image: linear-gradient(top, #3BA4C7 0%,#1982A5 100%);
+                -webkit-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+                -moz-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+                box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+                cursor: pointer;
+            }
 
-        .addButton {
-            cursor: pointer;
-            text-decoration: none;
-            text-align: center;
-            padding: 2px 2px;
-            border: none;
-            -webkit-border-radius: 14px;
-            -moz-border-radius: 14px;
-            border-radius: 14px;
-            font: 14px Arial, Helvetica, sans-serif;
-            font-weight: bold;
-            color: #E5FFFF;
-            background-color: #3BA4C7;
-            background-image: -moz-linear-gradient(top, #3BA4C7 0%, #1982A5 100%);
-            background-image: -webkit-linear-gradient(top, #3BA4C7 0%, #1982A5 100%);
-            background-image: -o-linear-gradient(top, #3BA4C7 0%, #1982A5 100%);
-            background-image: -ms-linear-gradient(top, #3BA4C7 0%,#1982A5 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1982A5', endColorstr='#1982A5',GradientType=0 );
-            background-image: linear-gradient(top, #3BA4C7 0%,#1982A5 100%);
-            -webkit-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
-            -moz-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
-            box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
-        }
+            .addButton {
+                cursor: pointer;
+                text-decoration: none;
+                text-align: center;
+                padding: 2px 2px;
+                border: none;
+                -webkit-border-radius: 14px;
+                -moz-border-radius: 14px;
+                border-radius: 14px;
+                font: 14px Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                color: #E5FFFF;
+                background-color: #3BA4C7;
+                background-image: -moz-linear-gradient(top, #3BA4C7 0%, #1982A5 100%);
+                background-image: -webkit-linear-gradient(top, #3BA4C7 0%, #1982A5 100%);
+                background-image: -o-linear-gradient(top, #3BA4C7 0%, #1982A5 100%);
+                background-image: -ms-linear-gradient(top, #3BA4C7 0%,#1982A5 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1982A5', endColorstr='#1982A5',GradientType=0 );
+                background-image: linear-gradient(top, #3BA4C7 0%,#1982A5 100%);
+                -webkit-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+                -moz-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+                box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+            }
 
-        svg{
-            width:80px;
-            height:80px;
-        }
+            svg {
+                width: 80px;
+                height: 80px;
+            }
 
-        table{
-            
-            margin:10px;
-            border-collapse:collapse;
-        }
-    </style>
+            table {
+                margin: 10px;
+                border-collapse: collapse;
+            }
+        </style>
 
 
-    <form method="get">
-        <div style="margin:10px" class="form-inline form-group">
-            <label class="control-label">Имя: </label>
-            
-            @Html.TextBox("name")
+        <form method="get">
+            <div style="margin:10px" class="form-inline form-group">
+                <label class="control-label">Имя: </label>
 
-            <input type="submit" value="Поиск" class="btn btn-default" />
-        </div>
-    </form>
-    <br>
+                @Html.TextBox("name")
 
-    <table class="table">
-        
-        @foreach (var item in Model)
-        {
-            <tr><td rowspan="2">@Html.Raw(@item.Icon)</td><td>@item.NameNote</td></tr>
-            <tr><td><a asp-action="Details" class="addButton" asp-controller="Home" asp-route-id="@item.Id">Подробнее</a>|
-                    <form asp-controller="Home" asp-action="Delete" asp-route-id="@item.Id" method="post">
+                <input type="submit" value="Поиск" class="btn btn-default" />
+            </div>
+        </form>
+        <br>
+
+        <table class="table">
+
+            @foreach (var item in Model)
+            {
+                <tr><td rowspan="2">@Html.Raw(@item.Icon)</td><td>@item.NameNote</td></tr>
+                <tr>
+                    <td>
+                        <a asp-action="Details" class="addButton" asp-controller="Home" asp-route-id="@item.Id">Подробнее</a>|
+                        <form asp-controller="Home" asp-action="Delete" asp-route-id="@item.Id" method="post">
                             <input type="submit" class="exitButton" value="Удалить" />
-                    </form></tr>
-        }
-    </table>
+                        </form>
+                </tr>
+            }
+        </table>
 
-    
 
-    <form method="post" asp-controller="Account" asp-action="LogOff">
-        <input class="exitButton" type="submit" value="Выход" />
-    </form>
-}
-else
-{
-    <a class="addButton" asp-controller="Account" asp-action="Login">Вход</a>
-    <a class="addButton" asp-controller="Account" asp-action="Register">Регистрация</a>
-}
+
+        <form method="post" asp-controller="Account" asp-action="LogOff">
+            <input class="exitButton" type="submit" value="Выход" />
+        </form>
+    }
+    else
+    {
+        <a class="addButton" asp-controller="Account" asp-action="Login">Вход</a>
+        <a class="addButton" asp-controller="Account" asp-action="Register">Регистрация</a>
+    }
 </div>
-

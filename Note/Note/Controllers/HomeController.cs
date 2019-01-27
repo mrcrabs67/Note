@@ -6,32 +6,38 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Note.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Note.Controllers
 {
     public class HomeController : Controller
     {
 
-        private NoteContext db;
+        private ApplicationContext db;
 
-        public HomeController(NoteContext context)
+        public HomeController(ApplicationContext context)
         {
             db = context;
         }
 
-        //public async Task<IActionResult> Index()
-        //{
-            
-        //    return View(await db.Notes.ToListAsync());
-        //}
+
 
         public ActionResult Index(string name)
         {
             if (User.Identity.IsAuthenticated)
             {
-                IQueryable<Notes> note = db.Notes;
 
-                note = note.Where(p => p.Login == User.Identity.Name);
+
+                var Notes = db.Notes;
+
+                IQueryable<Notes> note = Notes;
+
+                note = note.Where(p => p.UserName==User.Identity.Name);
+
+                foreach (var s in note)
+                {
+                    Console.Write(s);
+                }
 
                 if (!String.IsNullOrEmpty(name))
                 {
@@ -44,12 +50,12 @@ namespace Note.Controllers
             {
                 return View();
             }
-            
+
         }
 
         public IActionResult CreateNote()
         {
-        if (User.Identity.IsAuthenticated)
+            if (User.Identity.IsAuthenticated)
             {
                 return View();
             }
@@ -57,7 +63,7 @@ namespace Note.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-           
+
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -76,14 +82,15 @@ namespace Note.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Notes note)
         {
-            note.Login = User.Identity.Name;
+            //note.UserName = User.Identity.Name;
             Icon icon = new Icon();
             note.Icon = icon.GetIconTask(note.NameNote).Result;
 
-            var z = db.Notes.ToList();
+            note.UserName = User.Identity.Name;
 
+            
             db.Notes.Add(note);
-             db.SaveChanges();
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

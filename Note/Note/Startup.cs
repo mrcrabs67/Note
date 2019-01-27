@@ -36,9 +36,7 @@ namespace Note
 
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddDbContext<NoteContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection2")));
+            
 
             services.AddIdentity<User, IdentityRole>(opts => {
                 opts.Password.RequiredLength = 5;   // минимальная длина
